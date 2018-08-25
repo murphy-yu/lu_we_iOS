@@ -1,0 +1,96 @@
+<template>
+  <calendar
+        :currentDate.sync="currentDate"
+        :startDate.sync="startDate"
+        :endDate.sync="endDate"
+        :hasIconList.sync="hasIconList"
+        :moduleId.sync="'step1Canlendar'"
+        ></calendar>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Panel from '@/components/panel' // alias example
+  import Counter from 'counter' // alias example
+  import List from '../components/list' // aliasFields example
+  import moduleA from 'module-a' // aliasFields ignore module example
+  import Group from '../components/group'
+  import Toast from 'wepy-com-toast'
+  import testMixin from '../mixins/test'
+
+  import ListItem from '@/components/index/listitem'
+  import Calendar from '@/components/index/calendar'
+
+  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '圈子'
+    }
+    components = {
+      // panel: Panel,
+      // counter1: Counter,
+      // counter2: Counter,
+      // list: List,
+      // group: Group,
+      // toast: Toast,
+      // listitem: ListItem,
+      calendar: Calendar
+    }
+
+    onLoad(){
+           this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+       }
+
+    data = {
+              currentDate: "2018-08-09",
+              startDate: '2018-01-01',
+              endDate: '2018-02-01',
+              hasIconList:[ '2018-08-01', '2018-08-06', '2018-08-09', '2018-08-10', '2018-08-15' ]
+        };  // 页面所需数据均需在这里声明，可用于模板数据绑定
+
+    events = {
+              calChangeCurrentMonth:function (date,moduleId,e) {
+                 //日历当前月份改变回调
+                 //单个用例只需用到date
+                 //多个用例是通过传回来的moduleId去判断是那个用例，从而操作不懂逻辑：
+                 //if(moduleId=='xxxx'){
+                 //
+                 // }else{
+                 // }
+                 this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+              },
+              calChangeSelectedDay:function (date,moduleId,e) {
+                //日历当前月份改变回调
+                                 //单个用例只需用到date
+                                 //多个用例是通过传回来的moduleId去判断是那个用例，从而操作不懂逻辑：
+                                 //if(moduleId=='xxxx'){
+                                 //
+                                 // }else{
+                                 // }
+                                 this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+              }
+            };  // 声明组件之间的事件处理函数
+  }
+</script>
+
+<style lang="less">
+  .wrap{
+    background-color: #f8f8f8;
+  }
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+</style>
