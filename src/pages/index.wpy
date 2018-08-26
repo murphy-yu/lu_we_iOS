@@ -21,6 +21,12 @@
   import ListItem from '@/components/index/listitem'
   import Calendar from '@/components/index/calendar'
 
+  import m_bill07 from '../mocks/bills/bill_7'
+  import m_bill08 from '../mocks/bills/bill_8'
+  import m_bill09 from '../mocks/bills/bill_9'
+  import m_bill10 from '../mocks/bills/bill_10'
+  import m_bill11 from '../mocks/bills/bill_11'
+
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
   export default class Index extends wepy.page {
@@ -44,13 +50,52 @@
 
     data = {
               currentDate: "2018-08-09",
-              startDate: '2018-01-01',
-              endDate: '2018-02-01',
-              hasIconList:[ '2018-08-01', '2018-08-06', '2018-08-09', '2018-08-10', '2018-08-15' ]
+              startDate: '2018-07-01',
+              endDate: '2018-11-01',
+              hasIconList:[ '2018-08-02', '2018-08-06', '2018-08-09', '2018-08-10', '2018-08-15' ]
         };  // 页面所需数据均需在这里声明，可用于模板数据绑定
 
     events = {
               calChangeCurrentMonth:function (date,moduleId,e) {
+                // console.log('#calChangeCurrentMonth:' + JSON.stringify(e))
+
+                // this.hasIconList = [ '2018-09-01', '2018-09-06', '2018-09-09', '2018-09-10', '2018-09-15'] ]
+
+                // if (month==='07') {
+                //   this.moneyStat = m_bill07.moneyStat
+                //   this.detailList = m_bill07.detailList
+                // }
+                // else if (month==='08') {
+                //   this.moneyStat = m_bill08.moneyStat
+                //   this.detailList = m_bill08.detailList
+                // }
+                // else if (month==='09') {
+                //   this.moneyStat = m_bill09.moneyStat
+                //   this.detailList = m_bill09.detailList
+                // }
+                // else if (month==='10') {
+                //   this.moneyStat = m_bill10.moneyStat
+                //   this.detailList = m_bill10.detailList
+                // }
+                // else if (month==='11') {
+                //   this.moneyStat = m_bill11.moneyStat
+                //   this.detailList = m_bill11.detailList
+                // }
+                // else {
+                //   this.moneyStat = m_bill09.moneyStat
+                //   this.detailList = m_bill09.detailList
+                // }
+
+                let m_bill = m_bill07
+                // console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList))
+
+                for (var i = 0; i < m_bill.detailList.length; i++) {
+                  console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList[i].info.date))
+
+                  let date = m_bill.detailList[i].info.date
+                }
+
+                this.hasIconList = new Array("2018-09-01","2018-09-03")
                  //日历当前月份改变回调
                  //单个用例只需用到date
                  //多个用例是通过传回来的moduleId去判断是那个用例，从而操作不懂逻辑：
@@ -58,9 +103,12 @@
                  //
                  // }else{
                  // }
-                 this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+                 // this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+
+
               },
               calChangeSelectedDay:function (date,moduleId,e) {
+                console.log('#calChangeSelectedDay:' + JSON.stringify(e))
                 //日历当前月份改变回调
                                  //单个用例只需用到date
                                  //多个用例是通过传回来的moduleId去判断是那个用例，从而操作不懂逻辑：
@@ -68,7 +116,9 @@
                                  //
                                  // }else{
                                  // }
-                                 this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+                                 // this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+
+
               }
             };  // 声明组件之间的事件处理函数
   }
