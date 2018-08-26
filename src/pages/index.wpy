@@ -57,40 +57,44 @@
 
     events = {
               calChangeCurrentMonth:function (date,moduleId,e) {
-                // console.log('#calChangeCurrentMonth:' + JSON.stringify(e))
 
+
+                let calenderArr = date.split('-')
+
+                // 发送接口请求当前月份的数据
+                let month = calenderArr[1]
+                // console.log('#calChangeCurrentMonth:' + JSON.stringify(date) + ',,' + month)
+                console.log('#calChangeCurrentMonth:' + ',,' + month)
                 // this.hasIconList = [ '2018-09-01', '2018-09-06', '2018-09-09', '2018-09-10', '2018-09-15'] ]
 
-                // if (month==='07') {
-                //   this.moneyStat = m_bill07.moneyStat
-                //   this.detailList = m_bill07.detailList
-                // }
-                // else if (month==='08') {
-                //   this.moneyStat = m_bill08.moneyStat
-                //   this.detailList = m_bill08.detailList
-                // }
-                // else if (month==='09') {
-                //   this.moneyStat = m_bill09.moneyStat
-                //   this.detailList = m_bill09.detailList
-                // }
-                // else if (month==='10') {
-                //   this.moneyStat = m_bill10.moneyStat
-                //   this.detailList = m_bill10.detailList
-                // }
-                // else if (month==='11') {
-                //   this.moneyStat = m_bill11.moneyStat
-                //   this.detailList = m_bill11.detailList
-                // }
-                // else {
-                //   this.moneyStat = m_bill09.moneyStat
-                //   this.detailList = m_bill09.detailList
-                // }
+                // let month = this.calenderArr[1]
 
-                let m_bill = m_bill07
+                var m_bill = m_bill09
+
+                if (month==='07') {
+                  m_bill = m_bill07
+                }
+                else if (month==='08') {
+                  m_bill = m_bill08
+                }
+                else if (month==='09') {
+                  m_bill = m_bill09
+                }
+                else if (month==='10') {
+                  m_bill = m_bill10
+                }
+                else if (month==='11') {
+                  m_bill = m_bill11
+                }
+                else {
+                  m_bill = m_bill09
+                }
+
+
                 // console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList))
                 this.hasIconList = new Array(m_bill.detailList.length)
                 for (var i = 0; i < m_bill.detailList.length; i++) {
-                  console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList[i].info.date))
+                  // console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList[i].info.date))
 
                   let date = m_bill.detailList[i].info.date
                   this.hasIconList[i] = date;

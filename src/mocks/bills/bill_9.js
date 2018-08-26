@@ -2,15 +2,15 @@ import wepy from 'wepy';
 
 
 let m_bill = {
-  calenderArr: ['2018', '07'],   // 当前年月
+  calenderArr: ['2018', '09'],   // 当前年月
   moneyStat: {
-    income: '777.00',   // 收入
-    pay: '77.00'       // 支出
+    income: '999.00',   // 收入
+    pay: '99.00'       // 支出
   },
   detailList: [
     {
       info: {
-        date: '2018-07-01',
+        date: '2018-09-01',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -48,7 +48,7 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-03',
+        date: '2018-09-03',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -72,7 +72,7 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-07',
+        date: '2018-09-07',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -96,7 +96,7 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-13',
+        date: '2018-09-13',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -120,7 +120,7 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-17',
+        date: '2018-09-17',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -158,7 +158,7 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-19',
+        date: '2018-09-19',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -182,7 +182,7 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-23',
+        date: '2018-09-23',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
@@ -206,7 +206,31 @@ let m_bill = {
     },
     {
       info: {
-        date: '2018-07-27',
+        date: '2018-09-27',
+        day: '星期日',
+        totalIncome: 0,
+        totalPay: 0
+      },
+      list: [
+        {
+          id: 1,
+          image: '/images/reading.png',
+          title: '还款',
+          remark: '',
+          mount: -12
+        },
+        {
+          id: 2,
+          image: '/images/reading.png',
+          title: '收款',
+          remark: '',
+          mount: 20
+        }
+      ]
+    },
+    {
+      info: {
+        date: '2018-09-29',
         day: '星期日',
         totalIncome: 0,
         totalPay: 0
