@@ -42,133 +42,136 @@
   import wepy from 'wepy'
   import ListSection from '@/components/bill/listsection'
   import { log, getSystem, formatTime } from '@/utils/util'
+  import m_bill from '../mocks/bills/bill_8'
 
   export default class Bill extends wepy.page {
     config = {
       navigationBarTitleText: '账本'
     }
 
-    data = {
-      calenderArr: ['2018', '02'],   // 当前年月
-      moneyStat: {
-        income: '2000.00',   // 收入
-        pay: '890.00'       // 支出
-      },
-      detailList: [
-        {
-          info: {
-            date: '02月25日',
-            day: '星期日',
-            totalIncome: 0,
-            totalPay: 0
-          },
-          list: [
-            {
-              id: 1,
-              image: '/images/reading.png',
-              title: '餐饮',
-              remark: '',
-              mount: -12
-            },
-            {
-              id: 2,
-              image: '/images/reading.png',
-              title: '兼职',
-              remark: '',
-              mount: 20
-            },
-            {
-              id: 1,
-              image: '/images/reading.png',
-              title: '餐饮',
-              remark: '',
-              mount: -12
-            },
-            {
-              id: 2,
-              image: '/images/reading.png',
-              title: '兼职',
-              remark: '',
-              mount: 20
-            }
-          ]
-        },
-        {
-          info: {
-            date: '02月25日',
-            day: '星期日',
-            totalIncome: 0,
-            totalPay: 0
-          },
-          list: [
-            {
-              id: 1,
-              image: '/images/reading.png',
-              title: '餐饮',
-              remark: '',
-              mount: -12
-            },
-            {
-              id: 2,
-              image: '/images/reading.png',
-              title: '兼职',
-              remark: '',
-              mount: 20
-            }
-          ]
-        },
-        {
-          info: {
-            date: '02月25日',
-            day: '星期日',
-            totalIncome: 0,
-            totalPay: 0
-          },
-          list: [
-            {
-              id: 1,
-              image: '/images/reading.png',
-              title: '餐饮',
-              remark: '',
-              mount: -12
-            },
-            {
-              id: 2,
-              image: '/images/reading.png',
-              title: '兼职',
-              remark: '',
-              mount: 20
-            }
-          ]
-        },
-        {
-          info: {
-            date: '02月25日',
-            day: '星期日',
-            totalIncome: 0,
-            totalPay: 0
-          },
-          list: [
-            {
-              id: 1,
-              image: '/images/reading.png',
-              title: '餐饮',
-              remark: '',
-              mount: -12
-            },
-            {
-              id: 2,
-              image: '/images/reading.png',
-              title: '兼职',
-              remark: '',
-              mount: 20
-            }
-          ]
-        }
-      ],
-      // 滚动区域信息
-      scrollHeight: 0
-    }
+    // data = {
+    //   calenderArr: ['2018', '02'],   // 当前年月
+    //   moneyStat: {
+    //     income: '2000.00',   // 收入
+    //     pay: '890.00'       // 支出
+    //   },
+    //   detailList: [
+    //     {
+    //       info: {
+    //         date: '02月25日',
+    //         day: '星期日',
+    //         totalIncome: 0,
+    //         totalPay: 0
+    //       },
+    //       list: [
+    //         {
+    //           id: 1,
+    //           image: '/images/reading.png',
+    //           title: '餐饮',
+    //           remark: '',
+    //           mount: -12
+    //         },
+    //         {
+    //           id: 2,
+    //           image: '/images/reading.png',
+    //           title: '兼职',
+    //           remark: '',
+    //           mount: 20
+    //         },
+    //         {
+    //           id: 1,
+    //           image: '/images/reading.png',
+    //           title: '餐饮',
+    //           remark: '',
+    //           mount: -12
+    //         },
+    //         {
+    //           id: 2,
+    //           image: '/images/reading.png',
+    //           title: '兼职',
+    //           remark: '',
+    //           mount: 20
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       info: {
+    //         date: '02月25日',
+    //         day: '星期日',
+    //         totalIncome: 0,
+    //         totalPay: 0
+    //       },
+    //       list: [
+    //         {
+    //           id: 1,
+    //           image: '/images/reading.png',
+    //           title: '餐饮',
+    //           remark: '',
+    //           mount: -12
+    //         },
+    //         {
+    //           id: 2,
+    //           image: '/images/reading.png',
+    //           title: '兼职',
+    //           remark: '',
+    //           mount: 20
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       info: {
+    //         date: '02月25日',
+    //         day: '星期日',
+    //         totalIncome: 0,
+    //         totalPay: 0
+    //       },
+    //       list: [
+    //         {
+    //           id: 1,
+    //           image: '/images/reading.png',
+    //           title: '餐饮',
+    //           remark: '',
+    //           mount: -12
+    //         },
+    //         {
+    //           id: 2,
+    //           image: '/images/reading.png',
+    //           title: '兼职',
+    //           remark: '',
+    //           mount: 20
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       info: {
+    //         date: '02月25日',
+    //         day: '星期日',
+    //         totalIncome: 0,
+    //         totalPay: 0
+    //       },
+    //       list: [
+    //         {
+    //           id: 1,
+    //           image: '/images/reading.png',
+    //           title: '餐饮',
+    //           remark: '',
+    //           mount: -12
+    //         },
+    //         {
+    //           id: 2,
+    //           image: '/images/reading.png',
+    //           title: '兼职',
+    //           remark: '',
+    //           mount: 20
+    //         }
+    //       ]
+    //     }
+    //   ],
+    //   // 滚动区域信息
+    //   scrollHeight: 0
+    // }
+
+    data = m_bill
 
     components = {
       listsection: ListSection
