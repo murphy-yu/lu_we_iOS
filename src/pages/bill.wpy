@@ -42,16 +42,18 @@
   import wepy from 'wepy'
   import ListSection from '@/components/bill/listsection'
   import { log, getSystem, formatTime } from '@/utils/util'
-  import m_bill7 from '../mocks/bills/bill_7'
-  import m_bill8 from '../mocks/bills/bill_8'
-  import m_bill9 from '../mocks/bills/bill_9'
+  import m_bill07 from '../mocks/bills/bill_7'
+  import m_bill08 from '../mocks/bills/bill_8'
+  import m_bill09 from '../mocks/bills/bill_9'
+  import m_bill10 from '../mocks/bills/bill_10'
+  import m_bill11 from '../mocks/bills/bill_11'
 
   export default class Bill extends wepy.page {
     config = {
       navigationBarTitleText: '账本'
     }
 
-    data = m_bill8
+    data = m_bill09
 
     components = {
       listsection: ListSection
@@ -62,10 +64,39 @@
       bindDateChange(e) {
         let dateStr = e.detail.value
         this.calenderArr = dateStr.split('-')
-        this.$apply()
 
         // 发送接口请求当前月份的数据
-        console.log('#bindDateChange' + JSON.stringify(e))
+        let month = this.calenderArr[1]
+
+        // console.log('#bindDateChange1:' + JSON.stringify(e))
+        // console.log('#bindDateChange2: ' + month)
+
+        if (month==='07') {
+          this.moneyStat = m_bill07.moneyStat
+          this.detailList = m_bill07.detailList
+        }
+        else if (month==='08') {
+          this.moneyStat = m_bill08.moneyStat
+          this.detailList = m_bill08.detailList
+        }
+        else if (month==='09') {
+          this.moneyStat = m_bill09.moneyStat
+          this.detailList = m_bill09.detailList
+        }
+        else if (month==='10') {
+          this.moneyStat = m_bill10.moneyStat
+          this.detailList = m_bill10.detailList
+        }
+        else if (month==='11') {
+          this.moneyStat = m_bill11.moneyStat
+          this.detailList = m_bill11.detailList
+        }
+        else {
+          this.moneyStat = m_bill09.moneyStat
+          this.detailList = m_bill09.detailList
+        }
+
+        this.$apply()
       },
 
       // 跳转到记账页面
