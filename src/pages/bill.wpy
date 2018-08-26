@@ -12,11 +12,11 @@
         </picker>
       </view>
       <view class="income">
-        <text>收入</text>
+        <text>收款</text>
         <text class="bold">{{ moneyStat.income }}</text>
       </view>
       <view class="pay">
-        <text>支出</text>
+        <text>还款</text>
         <text class="bold">{{ moneyStat.pay }}</text>
       </view>
     </view>
@@ -50,7 +50,7 @@
 
   export default class Bill extends wepy.page {
     config = {
-      navigationBarTitleText: '账本'
+      navigationBarTitleText: '收款列表'
     }
 
     data = m_bill09

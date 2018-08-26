@@ -3,7 +3,7 @@
     <swiper class="swiper">
       <repeat for="{{ planList }}" key="index" index="index" item="item">
         <swiper-item>
-          <listitem 
+          <listitem
             :id="item.id"
             :image="item.image"
             :title="item.title"
@@ -24,7 +24,7 @@
 
   export default class Plan extends wepy.page {
     config = {
-      navigationBarTitleText: '计划'
+      navigationBarTitleText: '财富诊断'
     }
 
     data = {
@@ -32,21 +32,21 @@
         {
           id: 1,
           image: '/images/reading.png',
-          title: '阅读',
-          remark: '书籍并不是没有生命的东西，它包藏着一种生命的潜力，与作者同样地活跃。不仅如此，它还像一个宝瓶，把作者生机勃勃的智慧中最纯净的精华保存起来。',
+          title: '财富诊断',
+          remark: '财富诊断是LJS通过科学测评，量化揭示投资者的投资风格，并据此诊断投资者的资产配置现状；根据投资者所持财富组合，好买将给出独家点评，并结合投资者的风格不同给于投资者好买的专业建议的一项服务',
           create_time: '2018年2月24日',
           times: 0,
           hours: '5.22'
         },
-        {
-          id: 2,
-          image: '/images/reading.png',
-          title: '运动',
-          remark: '一定要每天运动三十分钟',
-          create_time: '2018年2月24日',
-          times: 2,
-          hours: '2.22'
-        }
+        // {
+        //   id: 2,
+        //   image: '/images/reading.png',
+        //   title: '运动',
+        //   remark: '一定要每天运动三十分钟',
+        //   create_time: '2018年2月24日',
+        //   times: 2,
+        //   hours: '2.22'
+        // }
       ]
     }
 

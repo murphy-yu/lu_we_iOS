@@ -25,7 +25,7 @@
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '圈子'
+      navigationBarTitleText: '收款日历'
     }
     components = {
       // panel: Panel,

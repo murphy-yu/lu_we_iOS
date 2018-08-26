@@ -19,52 +19,28 @@ let m_bill = {
         {
           id: 1,
           image: '/images/reading.png',
-          title: '餐饮',
+          title: '还款',
           remark: '',
           mount: -12
         },
         {
           id: 2,
           image: '/images/reading.png',
-          title: '兼职',
+          title: '收款',
           remark: '',
           mount: 20
         },
         {
           id: 1,
           image: '/images/reading.png',
-          title: '餐饮',
+          title: '还款',
           remark: '',
           mount: -12
         },
         {
           id: 2,
           image: '/images/reading.png',
-          title: '兼职',
-          remark: '',
-          mount: 20
-        }
-      ]
-    },
-    {
-      info: {
-        date: '07月25日',
-        day: '星期日',
-        totalIncome: 0,
-        totalPay: 0
-      },
-      list: [
-        {
-          id: 1,
-          image: '/images/reading.png',
-          title: '餐饮',
-          remark: '',
-          mount: -12
-        },
-        {
-          id: 2,
-          image: '/images/reading.png',
-          title: '兼职',
+          title: '收款',
           remark: '',
           mount: 20
         }
@@ -81,14 +57,14 @@ let m_bill = {
         {
           id: 1,
           image: '/images/reading.png',
-          title: '餐饮',
+          title: '还款',
           remark: '',
           mount: -12
         },
         {
           id: 2,
           image: '/images/reading.png',
-          title: '兼职',
+          title: '收款',
           remark: '',
           mount: 20
         }
@@ -105,14 +81,38 @@ let m_bill = {
         {
           id: 1,
           image: '/images/reading.png',
-          title: '餐饮',
+          title: '还款',
           remark: '',
           mount: -12
         },
         {
           id: 2,
           image: '/images/reading.png',
-          title: '兼职',
+          title: '收款',
+          remark: '',
+          mount: 20
+        }
+      ]
+    },
+    {
+      info: {
+        date: '07月25日',
+        day: '星期日',
+        totalIncome: 0,
+        totalPay: 0
+      },
+      list: [
+        {
+          id: 1,
+          image: '/images/reading.png',
+          title: '还款',
+          remark: '',
+          mount: -12
+        },
+        {
+          id: 2,
+          image: '/images/reading.png',
+          title: '收款',
           remark: '',
           mount: 20
         }
