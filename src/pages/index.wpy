@@ -88,14 +88,17 @@
 
                 let m_bill = m_bill07
                 // console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList))
-
+                this.hasIconList = new Array(m_bill.detailList.length)
                 for (var i = 0; i < m_bill.detailList.length; i++) {
                   console.log('#calChangeCurrentMonth:' + JSON.stringify(m_bill.detailList[i].info.date))
 
                   let date = m_bill.detailList[i].info.date
+                  this.hasIconList[i] = date;
                 }
 
-                this.hasIconList = new Array("2018-09-01","2018-09-03")
+                // this.hasIconList = new Array("2018-09-01","2018-09-03")
+
+
                  //日历当前月份改变回调
                  //单个用例只需用到date
                  //多个用例是通过传回来的moduleId去判断是那个用例，从而操作不懂逻辑：
@@ -103,7 +106,7 @@
                  //
                  // }else{
                  // }
-                 // this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
+                 this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
 
 
               },
