@@ -16,7 +16,7 @@ import List from '../components/list' // aliasFields example
 import moduleA from 'module-a' // aliasFields ignore module example
 import Group from '../components/group'
 import Toast from 'wepy-com-toast'
-import testMixin from '../mixins/test'
+// import testMixin from '../mixins/test'
 
 import ListItem from '@/components/index/listitem'
 import Calendar from '@/components/index/calendar'
@@ -67,7 +67,7 @@ export default class Index extends wepy.page {
   }
 
   data = {
-    currentDate: "2018-08-09",
+    currentDate: "2018-09-08",
     startDate: '2018-07-01',
     endDate: '2018-11-01',
     hasIconList:['2018-08-01', '2018-08-03', '2018-08-07', '2018-08-13', '2018-08-17', '2018-08-19', '2018-08-23', '2018-08-27', '2018-08-29', '2018-09-01', '2018-09-03', '2018-09-07', '2018-09-13', '2018-09-17', '2018-09-19', '2018-09-23', '2018-09-27', '2018-09-29']

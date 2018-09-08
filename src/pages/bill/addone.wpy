@@ -3,10 +3,16 @@
     <view class="typewrap">
       <view class="typebar">
         <view class="{{ bill.typeId === '1' ? 'active' : '' }}" @tap="toggleType(1)">
-          <text>支出</text>
+          <text>基金</text>
         </view>
         <view class="{{ bill.typeId === '2' ? 'active' : '' }}" @tap="toggleType(2)">
-          <text>收入</text>
+          <text>股票</text>
+        </view>
+        <view class="{{ bill.typeId === '3' ? 'active' : '' }}" @tap="toggleType(3)">
+          <text>保险</text>
+        </view>
+        <view class="{{ bill.typeId === '4' ? 'active' : '' }}" @tap="toggleType(4)">
+          <text>理财</text>
         </view>
       </view>
     </view>
@@ -44,7 +50,7 @@
   import wepy from 'wepy'
   import CateSlide from '@/components/bill/cateslide'
   import { log } from '@/utils/util'
-  import { payCateList, incomeCateList } from '@/utils/config'
+  import { fundCateList, stockCateList, insuranceCateList, cashCateList } from '@/utils/config'
 
   export default class AddOne extends wepy.page {
     config = {
@@ -52,7 +58,7 @@
     }
 
     data = {
-      cateList: payCateList,
+      cateList: fundCateList,
       bill: {
         typeId: '1'
       },
@@ -71,16 +77,36 @@
     methods = {
       // 切换记账方式
       toggleType(t) {
-        if (t === '1' && this.bill.typeId === '2') {
+        // console.log('#toggleType1:' + JSON.stringify(t))
+
+        if (t === '1' ) {//&& this.bill.typeId !== '1'
+
+          // console.log('#toggleType2:' + JSON.stringify(t))
+
           this.bill.typeId = t
-          this.cateList = payCateList
+          this.cateList = fundCateList
           this.form.cateType = ''
           this.form.cateId = ''
-        } else if (t === '2' && this.bill.typeId === '1') {
+        } else if (t === '2' ) {//&& this.bill.typeId !== '2'
+          // console.log('#toggleType2:' + JSON.stringify(t))
           this.bill.typeId = t
-          this.cateList = incomeCateList
+          this.cateList = stockCateList
           this.form.cateType = ''
           this.form.cateId = ''
+        } else if (t === '3' && this.bill.typeId !== '3') {
+          // console.log('#toggleType2:' + JSON.stringify(t))
+          this.bill.typeId = t
+          this.cateList = insuranceCateList
+          this.form.cateType = ''
+          this.form.cateId = ''
+        } else if (t === '4' && this.bill.typeId !== '4') {
+          // console.log('#toggleType2:' + JSON.stringify(t))
+          this.bill.typeId = t
+          this.cateList = cashCateList
+          this.form.cateType = ''
+          this.form.cateId = ''
+        } else {
+          console.log('#toggleType2:' + JSON.stringify(t))
         }
       },
 
@@ -123,18 +149,40 @@
 
       // 确认记账
       confirmAdd() {
-        let { money } = this.form
+        let { money, cateType, cateId } = this.form
+
+        // console.log('#confirmAdd:' + JSON.stringify(this))
+        // log('cateType', this.form.cateType);
+        // log('cateId', this.form.cateId);
+
+        log('cateType', cateType);
+        log('cateId', cateId);
+        log('form', this.form);
+
         if (money <= 0) {
           // 提示金额不能为0
           wx.showToast({
-            title: this.bill.typeId === '1' ? '没花钱不能记哦' : '没收钱不能记哦',
+            title: '请输入金额',
+            icon: 'success',
+            duration: 2000
+          })
+          return false
+        }
+        else if(cateId === '' || cateId === '') {
+          // 提示金额不能为0
+          wx.showToast({
+            title: '请选择类型',
             icon: 'success',
             duration: 2000
           })
           return false
         }
 
+
         // 发送Post请求记录
+
+
+
       },
 
       // 取消 返回账本页

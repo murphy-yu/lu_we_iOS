@@ -1,207 +1,201 @@
-// 账本支出类目
-export const payCateList = [
+
+// 账本收入类目
+export const fundCateList = [
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 1,
-    cateName: '餐饮'
+    cateName: '封闭式基金',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 2,
-    cateName: '购物'
+    cateName: '对冲基金',
+    image: 'icon-bill'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 3,
-    cateName: '日用'
+    cateName: 'QDII基金',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 4,
-    cateName: '交通'
+    cateName: 'ETF基金',
+    image: 'icon-setting'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 5,
-    cateName: '蔬菜'
+    cateName: '认股权证基金',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 6,
-    cateName: '水果'
+    cateName: '契约型基金',
+    image: 'icon-menual'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 7,
-    cateName: '零食'
+    cateName: '平衡型基金',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 8,
-    cateName: '运动'
+    cateName: '公司型基金',
+    image: 'icon-log'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 9,
-    cateName: '娱乐'
+    cateName: '保险基金',
+    image: 'icon-author'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 10,
-    cateName: '通讯'
+    cateName: '信托基金',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 11,
-    cateName: '服饰'
+    cateName: '投资基金',
+    image: 'icon-setting'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 12,
-    cateName: '美容'
+    cateName: '股票基金',
+    image: 'icon-menual'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 13,
-    cateName: '住房'
+    cateName: '货币基金',
+    image: 'icon-log'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 14,
-    cateName: '居家'
+    cateName: '债券基金',
+    image: 'icon-setting'
   },
   {
-    type: 'pay',
+    type: 'fund',
     cateId: 15,
-    cateName: '孩子'
+    cateName: '分级基金B份额',
+    image: 'icon-plan'
   },
+]
+
+
+// 账本收入类目
+export const stockCateList = [
   {
-    type: 'pay',
+    type: 'stock',
     cateId: 16,
-    cateName: '长辈'
+    cateName: '热点概念股',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'stock',
     cateId: 17,
-    cateName: '社交'
+    cateName: '成长股',
+    image: 'icon-bill'
   },
   {
-    type: 'pay',
+    type: 'stock',
     cateId: 18,
-    cateName: '旅行'
+    cateName: '成熟股',
+    image: 'icon-setting'
   },
   {
-    type: 'pay',
+    type: 'stock',
     cateId: 19,
-    cateName: '烟酒'
+    cateName: '银行保险石油股票',
+    image: 'icon-plan'
   },
   {
-    type: 'pay',
+    type: 'stock',
     cateId: 20,
-    cateName: '数码'
+    cateName: '券商股',
+    image: 'icon-author'
   },
+]
+
+
+
+// 账本收入类目
+export const insuranceCateList = [
   {
-    type: 'pay',
+    type: 'insurance',
     cateId: 21,
-    cateName: '汽车'
+    cateName: '人寿险',
+    image: 'icon-log'
   },
   {
-    type: 'pay',
+    type: 'insurance',
     cateId: 22,
-    cateName: '医疗'
+    cateName: '意外险',
+    image: 'icon-insurance'
   },
   {
-    type: 'pay',
+    type: 'insurance',
     cateId: 23,
-    cateName: '书籍'
+    cateName: '养老险',
+    image: 'icon-menual'
   },
   {
-    type: 'pay',
+    type: 'insurance',
     cateId: 24,
-    cateName: '学习'
+    cateName: '重疾险',
+    image: 'icon-setting'
   },
   {
-    type: 'pay',
+    type: 'insurance',
     cateId: 25,
-    cateName: '宠物'
-  },
-  {
-    type: 'pay',
-    cateId: 26,
-    cateName: '礼金'
-  },
-  {
-    type: 'pay',
-    cateId: 27,
-    cateName: '礼物'
-  },
-  {
-    type: 'pay',
-    cateId: 28,
-    cateName: '办公'
-  },
-  {
-    type: 'pay',
-    cateId: 29,
-    cateName: '维修'
-  },
-  {
-    type: 'pay',
-    cateId: 30,
-    cateName: '捐赠'
-  },
-  {
-    type: 'pay',
-    cateId: 31,
-    cateName: '彩票'
-  },
-  {
-    type: 'pay',
-    cateId: 32,
-    cateName: '亲友'
-  },
-  {
-    type: 'pay',
-    cateId: 33,
-    cateName: '快递'
-  },
-  {
-    type: 'pay',
-    cateId: 34,
-    cateName: '其他'
+    cateName: '健康险',
+    image: 'icon-menual'
   }
 ]
 
+
+
 // 账本收入类目
-export const incomeCateList = [
+export const cashCateList = [
   {
-    type: 'income',
-    cateId: 1,
-    cateName: '工资'
+    type: 'cash',
+    cateId: 26,
+    cateName: 'P2P',
+    image: 'icon-cash'
   },
   {
-    type: 'income',
-    cateId: 2,
-    cateName: '兼职'
+    type: 'cash',
+    cateId: 27,
+    cateName: '固收',
+    image: 'icon-author'
   },
   {
-    type: 'income',
-    cateId: 3,
-    cateName: '理财'
+    type: 'cash',
+    cateId: 28,
+    cateName: '理财',
+    image: 'icon-log'
   },
   {
-    type: 'income',
-    cateId: 4,
-    cateName: '礼金'
+    type: 'cash',
+    cateId: 29,
+    cateName: '现金',
+    image: 'icon-menual'
   },
   {
-    type: 'income',
-    cateId: 5,
-    cateName: '红包'
+    type: 'cash',
+    cateId: 30,
+    cateName: '其他',
+    image: 'icon-setting'
   },
-  {
-    type: 'income',
-    cateId: 6,
-    cateName: '其他'
-  }
 ]

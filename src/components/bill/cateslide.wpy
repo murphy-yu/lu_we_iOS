@@ -4,7 +4,8 @@
       <repeat for="{{ list }}" key="index" index="index" item="item">
         <view class="item {{ cateType == item.type && cateId == item.cateId ? 'active' : '' }}"
           @tap="selectCate({{item.type}}, {{item.cateId}})">
-          <view class="icon icon-{{ item.type }}-{{ item.cateId }}"></view>
+
+          <view class="icon {{item.image}}"></view>
           <text>{{ item.cateName }}</text>
         </view>
       </repeat>
@@ -52,12 +53,12 @@
     box-sizing: border-box;
     padding: 0 30rpx;
     .item{
-      height: 130rpx;
+      height: 185rpx;
       padding-bottom: 20rpx;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 16.66%;
+      width: 25%;
       text-align: center;
       box-sizing: border-box;
       text{
@@ -90,8 +91,34 @@
     line-height:70rpx;
     color: #333;
   }
-  
-  .icon-pay-1::after{
+
+  .icon-cash::after{
     content: '\e600';
+  }
+
+  .icon-plan::after{
+    content: "\e601";
+    // color: #138cff;
+  }
+  .icon-bill::after{
+    content: "\e61c";
+  }
+  .icon-setting::after{
+    content: "\e62c";
+  }
+  .icon-menual::after{
+    content: "\e647";
+  }
+  .icon-feed::after{
+    content: "\e62f";
+  }
+  .icon-log::after{
+    content: "\e696";
+  }
+  .icon-author::after{
+    content: "\e614";
+  }
+  .icon-insurance::after{
+    content: "\e62f";
   }
 </style>
