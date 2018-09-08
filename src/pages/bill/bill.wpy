@@ -42,11 +42,11 @@
   import wepy from 'wepy'
   import ListSection from '@/components/bill/listsection'
   import { log, getSystem, formatTime } from '@/utils/util'
-  import m_bill07 from '../mocks/bills/bill_7'
-  import m_bill08 from '../mocks/bills/bill_8'
-  import m_bill09 from '../mocks/bills/bill_9'
-  import m_bill10 from '../mocks/bills/bill_10'
-  import m_bill11 from '../mocks/bills/bill_11'
+  import m_bill07 from '@/mocks/bills/bill_7'
+  import m_bill08 from '@/mocks/bills/bill_8'
+  import m_bill09 from '@/mocks/bills/bill_9'
+  import m_bill10 from '@/mocks/bills/bill_10'
+  import m_bill11 from '@/mocks/bills/bill_11'
 
   export default class Bill extends wepy.page {
     config = {
@@ -107,8 +107,11 @@
       }
     }
 
-    onLoad() {
+    onLoad(params) {
       log('账单页面加载成功')
+
+      log('#params:', params)
+
       const sys = getSystem()
       wx.createSelectorQuery().select('#topInfo').boundingClientRect((rect) => {
         let h = rect.height
@@ -119,7 +122,11 @@
 
       // 设置当前月份
       const _cdate = formatTime(new Date()).slice(0, 2)
-      this.calenderArr = _cdate
+
+      let aDate = params.date;
+      let tDate = aDate.split('-').slice(0, 2);
+      console.log('#date:', new Date(), _cdate, params.date, tDate);
+      this.calenderArr = tDate ? tDate : _cdate
       this.$apply()
     }
   }
