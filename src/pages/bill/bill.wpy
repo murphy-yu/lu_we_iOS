@@ -31,9 +31,9 @@
     </scroll-view>
 
     <!-- 记一笔 -->
-    <view class="btn-addbill" @tap="bindToAddpage">
+    <!-- <view class="btn-addbill" @tap="bindToAddpage">
       <text>记</text>
-    </view>
+    </view> -->
   </view>
 
 </template>
