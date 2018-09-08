@@ -26,7 +26,9 @@ export default class extends wepy.app {
       'pages/plan',
       'pages/plan/clock',
       'pages/bill/bill',
-      'pages/me'
+      'pages/me',
+      'pages/chat',
+      'pages/message',
       // 子页面
     ],
     window: {
@@ -48,12 +50,12 @@ export default class extends wepy.app {
           iconPath: 'images/tabbar/plan.png',
           selectedIconPath: 'images/tabbar/plan-on.png'
         },
-        // {
-        //   pagePath: 'pages/bill/bill',
-        //   text: '收款列表',
-        //   iconPath: 'images/tabbar/bill.png',
-        //   selectedIconPath: 'images/tabbar/bill-on.png'
-        // },
+        {
+          pagePath: 'pages/message',
+          text: '收款列表',
+          iconPath: 'images/tabbar/bill.png',
+          selectedIconPath: 'images/tabbar/bill-on.png'
+        },
         {
           pagePath: 'pages/index',
           text: '收款日历',
