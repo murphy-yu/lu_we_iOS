@@ -46,7 +46,7 @@ export default class Index extends wepy.page {
 
   onLoad(){
     let months = new Array(m_bill09, m_bill10, m_bill11, m_bill07, m_bill08)
-    console.log('#calChangeCurrentMonth1:' + ',,' + JSON.stringify(months.length))
+    // console.log('#calChangeCurrentMonth1:' + ',,' + JSON.stringify(months.length))
     for (var i = 0; i < months.length; i++) {
       let month = months[i];
 
@@ -60,7 +60,7 @@ export default class Index extends wepy.page {
 
       this.hasIconList =  this.hasIconList.concat(aIconList)
 
-      console.log('#calChangeCurrentMonth:' + ',,' + JSON.stringify(month))// + JSON.stringify(this.hasIconList) + ',,'  + JSON.stringify(aIconList) + ',,'  +
+      // console.log('#calChangeCurrentMonth:' + ',,' + JSON.stringify(month))// + JSON.stringify(this.hasIconList) + ',,'  + JSON.stringify(aIconList) + ',,'  +
     }
 
     this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染

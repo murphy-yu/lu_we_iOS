@@ -52,11 +52,12 @@
 
     methods = {
       bindDoPlan(id, title) {
-        if (!id || !title) return
+        // if (!id || !title) return
 
+        console.log('2this.$parent', this.$parent, this.$parent.$navigate);
         //
         // this.$parent.$navigate('./plan/clock', { planId: id, planTitle: title })
-        this.$navigate('./bill/addone')
+        this.$parent.$navigate('./bill/addone')
       }
     }
   }
