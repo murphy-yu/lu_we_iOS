@@ -42,6 +42,12 @@
         @selectCate.user="chooseCate"></cateslide>
     </view>
 
+
+    <!-- 投顾 -->
+    <view class="btn-addbill" @tap="bindToAddpage">
+      <text>投顾</text>
+    </view>
+
   </view>
 
 </template>
@@ -54,7 +60,7 @@
 
   export default class AddOne extends wepy.page {
     config = {
-      navigationBarTitleText: '记账'
+      navigationBarTitleText: '我的财富'
     }
 
     data = {
@@ -198,6 +204,14 @@
       // this.calenderArr = _cdate
       // this.$apply()
     }
+
+    // 跳转到记账页面
+    bindToAddpage() {
+      log('#addone')
+      let id = 'mahuateng';
+      this.$root.$navigate({url: '../chat?id=' + id});
+
+    }
   }
 </script>
 
@@ -290,4 +304,22 @@
   .btn-cancel{
     background-color: #f8f8f8;
   }
+
+  .btn-addbill{
+    position: fixed;
+    right: 30rpx;
+    bottom: 15rpx;
+    height: 100rpx;
+    width: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    background-color: rgba(19, 140, 255, .9);
+    border-radius: 100%;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
+    text{
+      font-size: 26rpx;
+      color: #fff;
+    }
+  }
+
 </style>
