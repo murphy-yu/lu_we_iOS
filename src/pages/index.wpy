@@ -95,9 +95,7 @@ export default class Index extends wepy.page {
       // }
       // this.$broadcast("startRenderCalendar");//通知日历组件可以开始渲染
 
-      console.log('calChangeSelectedDay', e)
-
-      this.$navigate('./bill/addone')
+      this.$navigate('./bill/bill')
     }
   };  // 声明组件之间的事件处理函数
 }
