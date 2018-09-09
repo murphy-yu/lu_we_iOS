@@ -82,6 +82,9 @@
 
         methods = {
             send (evt) {
+
+              console.log('#send:', evt);
+
                 if (this.readyToSend) {
                     this.$invoke('../chartboard', 'sendMessage', this.readyToSend);
                 }
