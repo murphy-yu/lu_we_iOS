@@ -72,10 +72,11 @@
         typeId: '1'
       },
       form: {
+        money: 0,
         cateType: '',
         cateId: '',
-        money: 0,
-        remark: ''
+        cateName: '',
+        remark: '',
       },
       fortune: m_fortune
     }
@@ -90,42 +91,36 @@
         // console.log('#toggleType1:' + JSON.stringify(t))
 
         if (t === '1' ) {//&& this.bill.typeId !== '1'
-
-          // console.log('#toggleType2:' + JSON.stringify(t))
-
           this.bill.typeId = t
           this.cateList = fundCateList
-          this.form.cateType = ''
-          this.form.cateId = ''
         } else if (t === '2' ) {//&& this.bill.typeId !== '2'
           // console.log('#toggleType2:' + JSON.stringify(t))
           this.bill.typeId = t
           this.cateList = stockCateList
-          this.form.cateType = ''
-          this.form.cateId = ''
         } else if (t === '3' && this.bill.typeId !== '3') {
           // console.log('#toggleType2:' + JSON.stringify(t))
           this.bill.typeId = t
           this.cateList = insuranceCateList
-          this.form.cateType = ''
-          this.form.cateId = ''
         } else if (t === '4' && this.bill.typeId !== '4') {
           // console.log('#toggleType2:' + JSON.stringify(t))
           this.bill.typeId = t
           this.cateList = cashCateList
-          this.form.cateType = ''
-          this.form.cateId = ''
         } else {
           console.log('#toggleType2:' + JSON.stringify(t))
         }
+
+        this.form.cateType = ''
+        this.form.cateId = ''
+        this.form.cateName = ''
       },
 
       // 选择收入或支出类别
-      chooseCate(type, id) {
-        log('type', type)
-        log('id', id)
+      chooseCate(type, id, name) {
+        log('#chooseCate:', type, id, name)
+
         this.form.cateType = type
         this.form.cateId = id
+        // this.form.cateName = name
       },
 
       // 输入金额变化得到值
@@ -159,15 +154,16 @@
 
       // 确认记账
       confirmAdd() {
-        let { money, cateType, cateId } = this.form
+        let { money, cateType, cateId, cateName, remark } = this.form
 
         // console.log('#confirmAdd:' + JSON.stringify(this))
         // log('cateType', this.form.cateType);
         // log('cateId', this.form.cateId);
 
-        log('cateType', cateType);
-        log('cateId', cateId);
-        log('form', this.form);
+        // log('cateType', cateType);
+        // log('cateId', cateId);
+        log('##form', money, cateType, cateId);
+
 
         if (money <= 0) {
           // 提示金额不能为0
@@ -190,13 +186,110 @@
 
         // console.log('#1: ', this.fortune.detailList[0].list);
 
+        if (cateId == 1) {
+          cateName  = '封闭式基金'
+        }
+        else if (cateId == 2)  {
+          cateName  = '对冲基金'
+        }
+        else if (cateId == 3)  {
+          cateName  = 'QDII基金'
+        }
+        else if (cateId == 4)  {
+          cateName  = 'ETF基金'
+        }
+        else if (cateId == 5)  {
+          cateName  = '认股权证基金'
+        }
+        else if (cateId == 6)  {
+          cateName  = '契约型基金'
+        }
+        else if (cateId == 7)  {
+          cateName  = '平衡型基金'
+        }
+        else if (cateId == 8)  {
+          cateName  = '公司型基金'
+        }
+        else if (cateId == 9)  {
+          cateName  = '保险基金'
+        }
+        else if (cateId == 10)  {
+          cateName  = '信托基金'
+        }
+        else if (cateId == 11)  {
+          cateName  = '投资基金'
+        }
+        else if (cateId == 12)  {
+          cateName  = '股票基金'
+        }
+        else if (cateId == 13)  {
+          cateName  = '货币基金'
+        }
+        else if (cateId == 14)  {
+          cateName  = '债券基金'
+        }
+        else if (cateId == 15)  {
+          cateName  = '分级基金B份额'
+        }
+        else if (cateId == 16)  {
+          cateName  = '热点概念股'
+        }
+        else if (cateId == 17)  {
+          cateName  = '成长股'
+        }
+        else if (cateId == 18)  {
+          cateName  = '成熟股'
+        }
+        else if (cateId == 19)  {
+          cateName  = '银行保险石油股'
+        }
+        else if (cateId == 20)  {
+          cateName  = '券商股'
+        }
+        else if (cateId == 21)  {
+          cateName  = '人寿险'
+        }
+        else if (cateId == 22)  {
+          cateName  = '意外险'
+        }
+        else if (cateId == 23)  {
+          cateName  = '养老险'
+        }
+        else if (cateId == 24)  {
+          cateName  = '重疾险'
+        }
+        else if (cateId == 25)  {
+          cateName  = '健康险'
+        }
+        else if (cateId == 26)  {
+          cateName  = 'P2P'
+        }
+        else if (cateId == 27)  {
+          cateName  = '固收理财'
+        }
+        else if (cateId == 28)  {
+          cateName  = '浮动理财'
+        }
+        else if (cateId == 29)  {
+          cateName  = '银行存款'
+        }
+        else if (cateId == 30)  {
+          cateName  = '现金'
+        }
+        else {
+          cateName  = '其他'
+        }
+
+
+
+
         // 发送Post请求记录
         this.fortune.detailList[0].list.push({
-          id: 1,
+          id: cateId,
           image: '/images/reading.png',
-          title: '还款',
-          remark: '',
-          mount: -99
+          title: cateName,
+          remark: remark,
+          mount: money,
         });
 
         // console.log('#2: ', this.fortune.detailList[0].list);
