@@ -77,6 +77,10 @@
           }
           start += currentAngle
         }
+      },
+      onRedraw () {
+        this.initContextWidth()
+        this.drawCanvas()
       }
     }
 
@@ -163,6 +167,7 @@
 
 <style type="less">
   .pie-container {
+    margin-top: 30rpx;
     width: 100vw;
     height: 100vw;
     justify-content: center;

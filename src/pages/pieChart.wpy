@@ -19,32 +19,32 @@
 
     data = {
       mynum: 20,
-      dataSource: [{
-        'key': '1',
-        'value': '上海',
-        'count': 2,
-        'color': '#CCFF66'
-      }, {
-        'key': '2',
-        'value': '广东',
-        'count': 222,
-        'color': '#FF99CC'
-      }, {
-        'key': '3',
-        'value': '北京',
-        'count': 203,
-        'color': '#FFFF66'
-      }, {
-        'key': '4',
-        'value': '深圳',
-        'count': 191,
-        'color': '#FF9999'
-      }, {
-        'key': '5',
-        'value': '天津',
-        'count': 131,
-        'color': '#CCFFCC'
-      }]
+      // dataSource: [
+      //   {
+      //     'key': '1',
+      //     'value': '基金',
+      //     'count': 2,
+      //     'color': '#CCFF66'
+      //   },
+      //   {
+      //     'key': '2',
+      //     'value': '股票',
+      //     'count': 222,
+      //     'color': '#FF99CC'
+      //   },
+      //   {
+      //     'key': '3',
+      //     'value': '保险',
+      //     'count': 203,
+      //     'color': '#FFFF66'
+      //   },
+      //   {
+      //     'key': '4',
+      //     'value': '理财',
+      //     'count': 191,
+      //     'color': '#FF9999'
+      //   },
+      // ]
     }
 
     methods = {
@@ -57,6 +57,35 @@
     }
 
     onLoad () {
+
+      this.dataSource = [
+        {
+          'key': '1',
+          'value': '基金',
+          'count': 2,
+          'color': '#CCFF66'
+        },
+        {
+          'key': '2',
+          'value': '股票',
+          'count': 222,
+          'color': '#FF99CC'
+        },
+        {
+          'key': '3',
+          'value': '保险',
+          'count': 203,
+          'color': '#FFFF66'
+        },
+        {
+          'key': '4',
+          'value': '理财',
+          'count': 191,
+          'color': '#FF9999'
+        },
+      ]
+
+
     }
   }
 </script>

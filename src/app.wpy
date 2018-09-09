@@ -76,12 +76,12 @@ export default class extends wepy.app {
         //   selectedIconPath: 'images/tabbar/bill-on.png'
         // },
         //######chat debug entrance
-        {
-          pagePath: 'pages/pieChart',
-          text: '收款列表',
-          iconPath: 'images/tabbar/bill.png',
-          selectedIconPath: 'images/tabbar/bill-on.png'
-        },
+        // {
+        //   pagePath: 'pages/pieChart',
+        //   text: '收款列表',
+        //   iconPath: 'images/tabbar/bill.png',
+        //   selectedIconPath: 'images/tabbar/bill-on.png'
+        // },
         {
           pagePath: 'pages/index',
           text: '收款日历',
