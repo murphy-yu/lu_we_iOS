@@ -7,6 +7,7 @@ import global from './global';
 import wepy from 'wepy';
 
 export default {
+
     getRandomReply (id) {
         let template = m_reply[id];
         if (!template)

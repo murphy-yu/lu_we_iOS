@@ -32,6 +32,7 @@ export default class extends wepy.app {
       'pages/me',
       'pages/chat',
       'pages/message',
+      'pages/pieChart'
       // 子页面
     ],
     window: {
@@ -68,8 +69,15 @@ export default class extends wepy.app {
         //   selectedIconPath: 'images/tabbar/bill-on.png'
         // },
         //######chat debug entrance
+        // {
+        //   pagePath: 'pages/bill/addone',
+        //   text: '收款列表',
+        //   iconPath: 'images/tabbar/bill.png',
+        //   selectedIconPath: 'images/tabbar/bill-on.png'
+        // },
+        //######chat debug entrance
         {
-          pagePath: 'pages/bill/addone',
+          pagePath: 'pages/pieChart',
           text: '收款列表',
           iconPath: 'images/tabbar/bill.png',
           selectedIconPath: 'images/tabbar/bill-on.png'
