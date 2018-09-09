@@ -142,7 +142,7 @@ export default {
         history.push(msgObj);
 
         return new Promise((resolve, reject) => {
-            wepy.setStorage({key: '_wechat_history_', data: history}).then(() => {
+            wepy.setStorage(return {key: '_wechat_history_', data: history}).then(() => {
                 resolve(msgObj);
             }).catch(reject);
         });

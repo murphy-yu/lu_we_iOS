@@ -87,7 +87,11 @@
         }
 
         async loadMessage (id) {
+
             let userinfo, message;
+
+            console.log('userinfo, message', userinfo, message);
+
             try {
                 userinfo = await api.getUserInfo();
             } catch (e) {
@@ -125,6 +129,7 @@
 
             msgObj.name = this.current.nickName;
             msgObj.icon = this.current.avatarUrl;
+
             this.message.push(msgObj);
 
             this.$apply();
@@ -133,7 +138,7 @@
             let randomReply = await api.getRandomReply(id);
             this.replyMessage(randomReply);
 
-            console.log('#sendMessage:' + JSON.stringify(msg))
+            // console.log('#sendMessage:' + JSON.stringify(msg))
         }
 
         async replyMessage (msg) {
