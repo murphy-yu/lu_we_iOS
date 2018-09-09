@@ -1,0 +1,210 @@
+<template>
+  <view class="wrap">
+    <!-- 顶部统计信息 -->
+    <view class="topinfo" id="topInfo">
+      <!-- <view class="calender">
+        <text>{{ calenderArr[0] }}年</text>
+        <picker mode="date" value="{{date}}" fields="month" start="2018-01-01" end="2020-01-01" @change="bindDateChange">
+          <view class="picker">
+            <text class="bold">{{ calenderArr[1] }}</text>
+            <view class="iconfont icon-pulldown"></view>
+          </view>
+        </picker>
+      </view> -->
+      <view class="income">
+        <text>基金</text>
+        <text class="bold">{{ moneyStat.income }}</text>
+      </view>
+      <view class="income">
+        <text>股票</text>
+        <text class="bold">{{ moneyStat.income }}</text>
+      </view>
+      <view class="income">
+        <text>保险</text>
+        <text class="bold">{{ moneyStat.income }}</text>
+      </view>
+      <view class="pay">
+        <text>理财</text>
+        <text class="bold">{{ moneyStat.pay }}</text>
+      </view>
+    </view>
+
+    <!-- 滚动区域 -->
+    <scroll-view class="scroll-view" scroll-y style="height:{{ scrollHeight }}px">
+      <view class="list-wrap">
+        <repeat for="{{ detailList }}" key="index" index="index" item="item">
+          <listsection :item="item"></listsection>
+        </repeat>
+      </view>
+    </scroll-view>
+
+    <!-- 投顾 -->
+    <!-- <view class="btn-addbill" @tap="bindToAddpage">
+      <text>记</text>
+    </view> -->
+  </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import ListSection from '@/components/bill/listsection'
+  import { log, getSystem, formatTime } from '@/utils/util'
+  import m_bill07 from '@/mocks/bills/bill_7'
+  import m_bill08 from '@/mocks/bills/bill_8'
+  import m_bill09 from '@/mocks/bills/bill_9'
+  import m_bill10 from '@/mocks/bills/bill_10'
+  import m_bill11 from '@/mocks/bills/bill_11'
+
+  export default class Fortune extends wepy.page {
+    config = {
+      navigationBarTitleText: '财富列表'
+    }
+
+    data = m_bill09
+
+    components = {
+      listsection: ListSection
+    }
+
+    methods = {
+      // 选择日期
+      bindDateChange(e) {
+        let dateStr = e.detail.value
+        this.calenderArr = dateStr.split('-')
+
+        // 发送接口请求当前月份的数据
+        let month = this.calenderArr[1]
+
+        // console.log('#bindDateChange1:' + JSON.stringify(e))
+        // console.log('#bindDateChange2: ' + month)
+
+        if (month==='07') {
+          this.moneyStat = m_bill07.moneyStat
+          this.detailList = m_bill07.detailList
+        }
+        else if (month==='08') {
+          this.moneyStat = m_bill08.moneyStat
+          this.detailList = m_bill08.detailList
+        }
+        else if (month==='09') {
+          this.moneyStat = m_bill09.moneyStat
+          this.detailList = m_bill09.detailList
+        }
+        else if (month==='10') {
+          this.moneyStat = m_bill10.moneyStat
+          this.detailList = m_bill10.detailList
+        }
+        else if (month==='11') {
+          this.moneyStat = m_bill11.moneyStat
+          this.detailList = m_bill11.detailList
+        }
+        else {
+          this.moneyStat = m_bill09.moneyStat
+          this.detailList = m_bill09.detailList
+        }
+
+        this.$apply()
+      },
+
+      // 跳转到记账页面
+      bindToAddpage() {
+        log('#addone')
+        this.$navigate('./bill/addone')
+
+      }
+    }
+
+    onLoad(params) {
+      log('财富页面加载成功')
+
+      log('#params:', params)
+
+      const sys = getSystem()
+      wx.createSelectorQuery().select('#topInfo').boundingClientRect((rect) => {
+        let h = rect.height
+        h = h > 0 ? h : 70
+        this.scrollHeight = sys.wh - h
+        this.$apply()
+      }).exec()
+
+      // 设置当前月份
+      const _cdate = formatTime(new Date()).slice(0, 2)
+
+      // let aDate = params.date;
+      var tDate;
+      if (params.date && params.date !== 'undefined') {
+        tDate = params.date.split('-').slice(0, 2);
+      }
+
+      console.log('#date:', new Date(), _cdate, params.date, tDate);
+      this.calenderArr = tDate ? tDate : _cdate
+      this.$apply()
+    }
+  }
+</script>
+
+<style lang="less">
+  .wrap{
+    position: relative;
+    height: 100%;
+  }
+  .topinfo{
+    display: flex;
+    justify-content: space-around;
+    height: 140rpx;
+    padding: 18rpx 0;
+    background-color: #138cff;
+    box-sizing: border-box;
+    z-index: 10;
+    text{
+      text-align: center;
+      display: block;
+      color: #fff;
+    }
+    > view > text:first-child{
+      margin-bottom: 10rpx;
+      font-size: 28rpx;
+    }
+    .bold{
+      font-size: 40rpx;
+      font-weight: bold;
+    }
+  }
+  .picker{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon-pulldown::after{
+      font-family: "iconfont" !important;
+      font-size: 32rpx;
+      color: #fff;
+      content: '\e629';
+    }
+  }
+
+  .scroll-view{
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .list-wrap{
+    padding-bottom: 130rpx;
+  }
+
+  .btn-addbill{
+    position: fixed;
+    right: 30rpx;
+    bottom: 15rpx;
+    height: 100rpx;
+    width: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    background-color: rgba(19, 140, 255, .9);
+    border-radius: 100%;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.15);
+    text{
+      font-size: 26rpx;
+      color: #fff;
+    }
+  }
+</style>

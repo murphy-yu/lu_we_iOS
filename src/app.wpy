@@ -22,10 +22,13 @@ export default class extends wepy.app {
     pages: [
       'pages/index',
       'pages/ranking',
+      //path::bill
       'pages/bill/addone',
+      'pages/bill/bill',
+      'pages/bill/fortune',
+      //path::plan
       'pages/plan',
       'pages/plan/clock',
-      'pages/bill/bill',
       'pages/me',
       'pages/chat',
       'pages/message',
@@ -59,7 +62,7 @@ export default class extends wepy.app {
         // },
         //######chat debug entrance
         {
-          pagePath: 'pages/bill/bill',
+          pagePath: 'pages/bill/fortune',
           text: '收款列表',
           iconPath: 'images/tabbar/bill.png',
           selectedIconPath: 'images/tabbar/bill-on.png'
