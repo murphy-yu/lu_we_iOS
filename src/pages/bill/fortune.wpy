@@ -115,43 +115,43 @@
         //   this.moneyStat = m_bill09.moneyStat
         //   this.detailList = m_bill09.detailList
         // }
-        this.loadMessage();
+        // this.loadMessage();
       },
     }
 
-    async loadMessage () {
-      let message;
-      try {
-        message = await api.getFortune();
-        console.log('#getHistory message', message);
-
-
-      } catch (e) {
-        message = null;
-        console.error('getHistory fail');
-        console.log(e);
-      }
-      if (message) {
-        // this.message = message;
-        // this.to = id;
-        // this.message.forEach((msg) => {
-        //   if (msg.from === 'me') {
-        //     msg.name = userinfo.nickName;
-        //     msg.icon = userinfo.avatarUrl;
-        //   }
-        // });
-        console.log('#message.detailList: ', message.moneyStat, message.detailList);
-
-        this.moneyStat = message.moneyStat
-        this.detailList = message.detailList
-
-        this.$apply();
-      }
-    }
+    // async loadMessage () {
+    //   let message;
+    //   try {
+    //     message = await api.getFortune();
+    //     console.log('#getHistory message', message);
+    //
+    //
+    //   } catch (e) {
+    //     message = null;
+    //     console.error('getHistory fail');
+    //     console.log(e);
+    //   }
+    //   if (message) {
+    //     // this.message = message;
+    //     // this.to = id;
+    //     // this.message.forEach((msg) => {
+    //     //   if (msg.from === 'me') {
+    //     //     msg.name = userinfo.nickName;
+    //     //     msg.icon = userinfo.avatarUrl;
+    //     //   }
+    //     // });
+    //     console.log('#message.detailList: ', message.moneyStat, message.detailList);
+    //
+    //     this.moneyStat = message.moneyStat
+    //     this.detailList = message.detailList
+    //
+    //     this.$apply();
+    //   }
+    // }
 
     onShow() {
-      this.currentTab = 0;
-      this.loadMessage();
+      // this.currentTab = 0;
+      // this.loadMessage();
     }
 
     // async loadMessage (id) {
@@ -180,16 +180,15 @@
     // }
 
     // 跳转到记账页面
-    bindToAddpage() {
-      log('#addone')
-      this.$navigate('./bill/addone')
-
-    }
+    // bindToAddpage() {
+    //   log('#addone')
+    //   this.$navigate('./bill/addone')
+    //
+    // }
 
     onLoad(params) {
       log('财富页面加载成功')
 
-      log('#params:', params)
 
       const sys = getSystem()
       wx.createSelectorQuery().select('#topInfo').boundingClientRect((rect) => {
@@ -202,10 +201,18 @@
       // 设置当前月份
       const _cdate = formatTime(new Date()).slice(0, 2)
 
+
+      log('#params:', params.date, params.fortune)
+
       // let aDate = params.date;
       var tDate;
       if (params.date && params.date !== 'undefined') {
         tDate = params.date.split('-').slice(0, 2);
+      }
+
+      if (params.fortune && params.fortune !== 'undefined') {
+        this.moneyStat = params.fortune.moneyStat
+        this.detailList = params.fortune.detailList
       }
 
       console.log('#date:', new Date(), _cdate, params.date, tDate);

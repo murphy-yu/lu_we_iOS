@@ -187,8 +187,8 @@
 
         // 发送Post请求记录
 
-
-
+        // this.$parent.$navigate('./bill/addone', { money: money, cateType: cateType })
+        this.$navigate('./fortune', { money: money, cateType: cateType })
       },
 
       // 取消 返回账本页
