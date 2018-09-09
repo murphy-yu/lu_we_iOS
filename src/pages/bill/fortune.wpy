@@ -13,19 +13,19 @@
       </view> -->
       <view class="income">
         <text>基金</text>
-        <text class="bold">{{ moneyStat.income }}</text>
+        <text class="bold">{{ moneyStat.fund }}</text>
       </view>
       <view class="income">
         <text>股票</text>
-        <text class="bold">{{ moneyStat.income }}</text>
+        <text class="bold">{{ moneyStat.stock }}</text>
       </view>
       <view class="income">
         <text>保险</text>
-        <text class="bold">{{ moneyStat.income }}</text>
+        <text class="bold">{{ moneyStat.insurance }}</text>
       </view>
       <view class="pay">
         <text>理财</text>
-        <text class="bold">{{ moneyStat.pay }}</text>
+        <text class="bold">{{ moneyStat.cash }}</text>
       </view>
     </view>
 
@@ -214,28 +214,24 @@
       let detailList = global.getFortune();
 
       if (detailList && detailList !== 'undefined') {
-        // this.moneyStat = params.moneyStat
-
-        // console.log('###1-0:', this.moneyStat);
-        // console.log('###1-1:',  Object.values(fortune.moneyStat));
-        // console.log('###1-2:',  fortune.moneyStat);
-        //
-        // var myData = Object.keys(fortune.moneyStat).map(key => {
-        //   return fortune.moneyStat[key];
-        // })
-        // console.log('###1-3:', myData);
-        //
-        //
-        // for (let iter in fortune.moneyStat) {
-        //
-        //   console.log('###1-4:', iter);
-        // }
         console.log('###1-0:', detailList);
         this.detailList = [detailList];
       }
       else {
         console.error('###1-2:', this.moneyStat, fortune.moneyStat);
       }
+
+      let moneyStat = global.getMoneyStat();
+
+      if (moneyStat && moneyStat !== 'undefined') {
+        console.log('###1-0:', moneyStat);
+        this.moneyStat = moneyStat;
+      }
+      else {
+        console.error('###1-2:', this.moneyStat, fortune.moneyStat);
+      }
+
+
 
       // if (fortune.detailList && fortune.detailList !== 'undefined') {
       //   // this.detailList = params.detailList

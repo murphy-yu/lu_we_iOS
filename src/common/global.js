@@ -37,4 +37,12 @@ export default {
     setFortune (v) {
         this._fortune = v;
     },
+    getMoneyStat () {
+      return this._moneyStat;
+    },
+    setMoneyStat (v) {
+      this._moneyStat = v;
+    },
+
+
 }

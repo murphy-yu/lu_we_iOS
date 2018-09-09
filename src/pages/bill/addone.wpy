@@ -156,14 +156,7 @@
       confirmAdd() {
         let { money, cateType, cateId, cateName, remark } = this.form
 
-        // console.log('#confirmAdd:' + JSON.stringify(this))
-        // log('cateType', this.form.cateType);
-        // log('cateId', this.form.cateId);
-
-        // log('cateType', cateType);
-        // log('cateId', cateId);
         log('##form', money, cateType, cateId);
-
 
         if (money <= 0) {
           // 提示金额不能为0
@@ -287,25 +280,52 @@
           title: cateName,
           remark: remark,
           mount: money,
+          type: cateType
         });
 
-        // console.log('#2: ', this.fortune.detailList[0].list);
-// var z = x.concat(y);
-        // let moneyStat = [].concat(this.fortune.moneyStat)
-        // let detailList = [].concat(this.fortune.detailList)
-
-
-        let moneyStat = this.fortune.moneyStat
         let detailList = this.fortune.detailList[0]
         global.setFortune(detailList);
 
-        console.log('##0-0: ', this.fortune.moneyStat, moneyStat);
-        console.log('##0-1: ', this.fortune.detailList[0], detailList);
+
+        //
 
 
+        var fund = 0;
+        var stock = 0;
+        var insurance = 0;
+        var cash = 0;
 
+        for (let variable of detailList.list) {
+
+          if (variable.type === 'fund') {
+            fund += variable.mount;
+          } else if (variable.type === 'stock') {
+            stock += variable.mount;
+          } else if (variable.type === 'insurance') {
+            insurance += variable.mount;
+          } else if (variable.type === 'cash') {
+            cash += variable.mount;
+          } else {
+            console.console.error('e', variable);
+          }
+
+          console.log('##0-0: ', variable.title, variable.type, variable);
+        }
+
+        // let moneyStat = this.fortune.moneyStat
+        let moneyStat = {
+          fund: fund,
+          stock: stock,
+          insurance: insurance,
+          cash: cash,
+        };
+        global.setMoneyStat(moneyStat);
+
+        console.log('##0-1: ', detailList);
+        console.log('##0-2: ', moneyStat);
         // this.$navigate('./fortune', {moneyStat: this.fortune.moneyStat, detailList: this.fortune.detailList})
-        this.$navigate('./fortune', {detailList: this.fortune.detailList[0].list})
+        // this.$navigate('./fortune', {detailList: this.fortune.detailList[0].list})
+        this.$navigate('./fortune')
       },
 
       // 取消 返回账本页

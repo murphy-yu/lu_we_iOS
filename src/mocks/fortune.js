@@ -4,14 +4,18 @@ import wepy from 'wepy';
 let m_fortune = {
   calenderArr: ['2018', '10'],   // 当前年月
   moneyStat: {
-    income: '1000.00',   // 收入
-    pay: '100.00'       // 支出
+    income: 0,   // 收入
+    pay: 0,       // 支出
+    fund: 0,
+    stock: 0,
+    insurance: 0,
+    cash: 0,
   },
   detailList: [
     {
       info: {
-        date: '2018-10-29',
-        day: '星期日',
+        date: '我的财富',
+        day: '明细列表',
         totalIncome: 0,
         totalPay: 0
       },
