@@ -48,71 +48,133 @@
 
 <script>
   import wepy from 'wepy'
+
+  import api from '@/common/api';
+  import global from '@/common/global';
+
   import ListSection from '@/components/bill/listsection'
   import { log, getSystem, formatTime } from '@/utils/util'
-  import m_bill07 from '@/mocks/bills/bill_7'
-  import m_bill08 from '@/mocks/bills/bill_8'
-  import m_bill09 from '@/mocks/bills/bill_9'
-  import m_bill10 from '@/mocks/bills/bill_10'
-  import m_bill11 from '@/mocks/bills/bill_11'
+  // import m_bill07 from '@/mocks/bills/bill_7'
+  // import m_bill08 from '@/mocks/bills/bill_8'
+  // import m_bill09 from '@/mocks/bills/bill_9'
+  // import m_bill10 from '@/mocks/bills/bill_10'
+  // import m_bill11 from '@/mocks/bills/bill_11'
 
   export default class Fortune extends wepy.page {
     config = {
       navigationBarTitleText: '财富列表'
     }
 
-    data = m_bill09
+    // data = m_bill09
 
     components = {
       listsection: ListSection
     }
 
     methods = {
+
+
+
+
       // 选择日期
       bindDateChange(e) {
-        let dateStr = e.detail.value
-        this.calenderArr = dateStr.split('-')
-
-        // 发送接口请求当前月份的数据
-        let month = this.calenderArr[1]
+        // let dateStr = e.detail.value
+        // this.calenderArr = dateStr.split('-')
+        //
+        // // 发送接口请求当前月份的数据
+        // let month = this.calenderArr[1]
 
         // console.log('#bindDateChange1:' + JSON.stringify(e))
         // console.log('#bindDateChange2: ' + month)
 
-        if (month==='07') {
-          this.moneyStat = m_bill07.moneyStat
-          this.detailList = m_bill07.detailList
-        }
-        else if (month==='08') {
-          this.moneyStat = m_bill08.moneyStat
-          this.detailList = m_bill08.detailList
-        }
-        else if (month==='09') {
-          this.moneyStat = m_bill09.moneyStat
-          this.detailList = m_bill09.detailList
-        }
-        else if (month==='10') {
-          this.moneyStat = m_bill10.moneyStat
-          this.detailList = m_bill10.detailList
-        }
-        else if (month==='11') {
-          this.moneyStat = m_bill11.moneyStat
-          this.detailList = m_bill11.detailList
-        }
-        else {
-          this.moneyStat = m_bill09.moneyStat
-          this.detailList = m_bill09.detailList
-        }
-
-        this.$apply()
+        // if (month==='07') {
+        //   this.moneyStat = m_bill07.moneyStat
+        //   this.detailList = m_bill07.detailList
+        // }
+        // else if (month==='08') {
+        //   this.moneyStat = m_bill08.moneyStat
+        //   this.detailList = m_bill08.detailList
+        // }
+        // else if (month==='09') {
+        //   this.moneyStat = m_bill09.moneyStat
+        //   this.detailList = m_bill09.detailList
+        // }
+        // else if (month==='10') {
+        //   this.moneyStat = m_bill10.moneyStat
+        //   this.detailList = m_bill10.detailList
+        // }
+        // else if (month==='11') {
+        //   this.moneyStat = m_bill11.moneyStat
+        //   this.detailList = m_bill11.detailList
+        // }
+        // else {
+        //   this.moneyStat = m_bill09.moneyStat
+        //   this.detailList = m_bill09.detailList
+        // }
       },
+    }
 
-      // 跳转到记账页面
-      bindToAddpage() {
-        log('#addone')
-        this.$navigate('./bill/addone')
+    async loadMessage () {
+      let message;
+      try {
+        message = await api.getFortune();
+        console.log('#getHistory message', message);
 
+        this.detailList = message.detailList;
+      } catch (e) {
+        message = null;
+        console.error('getHistory fail');
+        console.log(e);
       }
+      if (message) {
+        // this.message = message;
+        // this.to = id;
+        // this.message.forEach((msg) => {
+        //   if (msg.from === 'me') {
+        //     msg.name = userinfo.nickName;
+        //     msg.icon = userinfo.avatarUrl;
+        //   }
+        // });
+        console.log('message', message);
+        this.$apply();
+      }
+    }
+
+    onShow() {
+      this.currentTab = 0;
+      this.loadMessage();
+    }
+
+    // async loadMessage (id) {
+    //   let message;
+    //   try {
+    //     message = await api.getFortune();
+    //     console.error('#getHistory message', message);
+    //
+    //     this.detailList = message.detailList;
+    //   } catch (e) {
+    //     message = null;
+    //     console.error('getHistory fail');
+    //     console.log(e);
+    //   }
+    //   if (message) {
+    //     this.message = message;
+    //     this.to = id;
+    //     this.message.forEach((msg) => {
+    //       if (msg.from === 'me') {
+    //         msg.name = userinfo.nickName;
+    //         msg.icon = userinfo.avatarUrl;
+    //       }
+    //     });
+    //     this.$apply();
+    //   }
+    // }
+
+    // 跳转到记账页面
+    bindToAddpage() {
+      log('#addone')
+      this.$navigate('./bill/addone')
+
     }
 
     onLoad(params) {

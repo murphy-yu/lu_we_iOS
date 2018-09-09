@@ -1,6 +1,7 @@
 import m_contacts from '../mocks/contact';
 import m_history from '../mocks/history';
 import m_reply from '../mocks/reply';
+import m_fortune from '../mocks/fortune'
 import global from './global';
 
 import wepy from 'wepy';
@@ -64,6 +65,32 @@ export default {
             });
         });
     },
+
+    getFortune () {
+        // let fortune = wepy.getStorageSync('_wechat_fortune_') || m_fortune;
+        // return new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         let sorted = fortune.sort((a, b) => a.time - b.time);
+        //         // if (!id)
+        //         //     resolve(this.leftJoin(sorted, m_contacts))
+        //         // else {
+        //         //     resolve(this.leftJoin(sorted.filter((v) => v.from === id || v.to === id), m_contacts));
+        //         // }
+        //         resolve(sorted)
+        //     });
+        // });
+
+
+        let fortune = wepy.getStorageSync('_wechat_fortune_') || m_fortune;
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(fortune);
+            });
+        });
+
+
+    },
+
     // select *, (select msg from history h2 where h2.from = c.id or h2.to = c.id order by time desc limit 1) as lastmsg
     // from history h
     // left join contact c
@@ -150,6 +177,31 @@ export default {
 
     clearMsg (id) {
         return wepy.clearStorage();
-    }
+    },
+
+    fortune (frm, to, msg, type = 'text') {
+        let history = wepy.getStorageSync('_wechat_history_') || m_history;
+        let msgObj = {
+            to: to,
+            msg: msg,
+            type: type,
+            from: frm,
+            time: +new Date()
+        };
+
+        history.push(msgObj);
+
+        return new Promise((resolve, reject) => {
+            wepy.setStorage({key: '_wechat_history_', data: history}).then(() => {
+                resolve(msgObj);
+            }).catch(reject);
+        });
+    },
+
+
+    //fortune storage
+    addFortune (to, msg, type = 'text') {
+      return this.msg('me', to, msg, type);
+    },
 
 }
