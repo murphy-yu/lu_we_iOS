@@ -30,7 +30,7 @@
           <text>确定</text>
         </view>
         <view class="btn-cancel" @tap="bindToBillpage">
-          <text>取消</text>
+          <text>财富诊断</text>
         </view>
       </view>
     </view>
@@ -298,11 +298,12 @@
   }
   .btn-confirm{
     margin-right: 30rpx;
-    background-color: #138cff;
+    background-color: #138cff;//#f8f8f8;
     color: #fff;
   }
   .btn-cancel{
-    background-color: #f8f8f8;
+    background-color: #138cff;
+    color: #fff;
   }
 
   .btn-addbill{

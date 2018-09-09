@@ -30,10 +30,10 @@
       </view>
     </scroll-view>
 
-    <!-- 记一笔 -->
-    <!-- <view class="btn-addbill" @tap="bindToAddpage">
+    <!-- 投顾 -->
+    <view class="btn-addbill" @tap="bindToAddpage">
       <text>记</text>
-    </view> -->
+    </view>
   </view>
 
 </template>
@@ -123,8 +123,12 @@
       // 设置当前月份
       const _cdate = formatTime(new Date()).slice(0, 2)
 
-      let aDate = params.date;
-      let tDate = aDate.split('-').slice(0, 2);
+      // let aDate = params.date;
+      var tDate;
+      if (params.date && params.date !== 'undefined') {
+        tDate = params.date.split('-').slice(0, 2);
+      }
+
       console.log('#date:', new Date(), _cdate, params.date, tDate);
       this.calenderArr = tDate ? tDate : _cdate
       this.$apply()

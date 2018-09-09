@@ -50,8 +50,16 @@ export default class extends wepy.app {
           iconPath: 'images/tabbar/plan.png',
           selectedIconPath: 'images/tabbar/plan-on.png'
         },
+        //######chat debug entrance
+        // {
+        //   pagePath: 'pages/message',
+        //   text: '收款列表',
+        //   iconPath: 'images/tabbar/bill.png',
+        //   selectedIconPath: 'images/tabbar/bill-on.png'
+        // },
+        //######chat debug entrance
         {
-          pagePath: 'pages/message',
+          pagePath: 'pages/bill/bill',
           text: '收款列表',
           iconPath: 'images/tabbar/bill.png',
           selectedIconPath: 'images/tabbar/bill-on.png'
