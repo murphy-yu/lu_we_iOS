@@ -30,6 +30,11 @@ export default {
     },
     setUserInfo (v) {
         this._userInfo = v;
-    }
-
+    },
+    getFortune () {
+        return this._fortune;
+    },
+    setFortune (v) {
+        this._fortune = v;
+    },
 }

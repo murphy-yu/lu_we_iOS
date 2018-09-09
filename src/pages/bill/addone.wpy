@@ -58,6 +58,9 @@
   import { log } from '@/utils/util'
   import { fundCateList, stockCateList, insuranceCateList, cashCateList } from '@/utils/config'
 
+  import m_fortune from '@/mocks/fortune'
+  import global from '@/common/global';
+
   export default class AddOne extends wepy.page {
     config = {
       navigationBarTitleText: '我的财富'
@@ -73,7 +76,8 @@
         cateId: '',
         money: 0,
         remark: ''
-      }
+      },
+      fortune: m_fortune
     }
 
     components = {
@@ -184,11 +188,34 @@
           return false
         }
 
+        // console.log('#1: ', this.fortune.detailList[0].list);
 
         // 发送Post请求记录
+        this.fortune.detailList[0].list.push({
+          id: 1,
+          image: '/images/reading.png',
+          title: '还款',
+          remark: '',
+          mount: -99
+        });
 
-        // this.$parent.$navigate('./bill/addone', { money: money, cateType: cateType })
-        this.$navigate('./fortune', { money: money, cateType: cateType })
+        // console.log('#2: ', this.fortune.detailList[0].list);
+// var z = x.concat(y);
+        // let moneyStat = [].concat(this.fortune.moneyStat)
+        // let detailList = [].concat(this.fortune.detailList)
+
+
+        let moneyStat = this.fortune.moneyStat
+        let detailList = this.fortune.detailList[0]
+        global.setFortune(detailList);
+
+        console.log('##0-0: ', this.fortune.moneyStat, moneyStat);
+        console.log('##0-1: ', this.fortune.detailList[0], detailList);
+
+
+
+        // this.$navigate('./fortune', {moneyStat: this.fortune.moneyStat, detailList: this.fortune.detailList})
+        this.$navigate('./fortune', {detailList: this.fortune.detailList[0].list})
       },
 
       // 取消 返回账本页

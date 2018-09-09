@@ -202,7 +202,7 @@
       const _cdate = formatTime(new Date()).slice(0, 2)
 
 
-      log('#params:', params.date, params.fortune)
+      log('##params:', params.date, params.moneyStat, params.detailList)
 
       // let aDate = params.date;
       var tDate;
@@ -210,12 +210,56 @@
         tDate = params.date.split('-').slice(0, 2);
       }
 
-      if (params.fortune && params.fortune !== 'undefined') {
-        this.moneyStat = params.fortune.moneyStat
-        this.detailList = params.fortune.detailList
+
+      let detailList = global.getFortune();
+
+      if (detailList && detailList !== 'undefined') {
+        // this.moneyStat = params.moneyStat
+
+        // console.log('###1-0:', this.moneyStat);
+        // console.log('###1-1:',  Object.values(fortune.moneyStat));
+        // console.log('###1-2:',  fortune.moneyStat);
+        //
+        // var myData = Object.keys(fortune.moneyStat).map(key => {
+        //   return fortune.moneyStat[key];
+        // })
+        // console.log('###1-3:', myData);
+        //
+        //
+        // for (let iter in fortune.moneyStat) {
+        //
+        //   console.log('###1-4:', iter);
+        // }
+        console.log('###1-0:', detailList);
+        this.detailList = [detailList];
+      }
+      else {
+        console.error('###1-2:', this.moneyStat, fortune.moneyStat);
       }
 
-      console.log('#date:', new Date(), _cdate, params.date, tDate);
+      // if (fortune.detailList && fortune.detailList !== 'undefined') {
+      //   // this.detailList = params.detailList
+      //   console.log('###2-0:', this.detailList);
+      //   console.log('###2-1:', Object.values(fortune));
+      //   console.log('###2-2:', fortune);
+      //
+      //   var myData = Object.keys(fortune.detailList).map(key => {
+      //     return fortune.detailList[key];
+      //   })
+      //   console.log('###2-3:', myData);
+      //
+      //   // this.$parent.
+      //
+      //
+      //
+      //   // var arr = Array.from(params.detailList.keys(obj), k=>obj[k]);
+      //   // console.log('###2-2:',  arr);
+      // }
+      // else {
+      //   console.error('###2-2:', this.detailList, params.detailList);
+      // }
+
+      console.log('##date:', new Date(), _cdate, params.date, tDate);
       this.calenderArr = tDate ? tDate : _cdate
       this.$apply()
     }
