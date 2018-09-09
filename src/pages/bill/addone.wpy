@@ -26,11 +26,11 @@
         <input type="text" placeholder="备注信息:" />
       </view>
       <view class="btns-wrap">
-        <view class="btn-confirm" @tap="confirmAdd">
-          <text>确定</text>
-        </view>
         <view class="btn-cancel" @tap="bindToBillpage">
-          <text>财富诊断</text>
+          <text>开始诊断</text>
+        </view>
+        <view class="btn-confirm" @tap="confirmAdd">
+          <text>确定添加</text>
         </view>
       </view>
     </view>
@@ -280,9 +280,6 @@
           cateName  = '其他'
         }
 
-
-
-
         // 发送Post请求记录
         this.fortune.detailList[0].list.push({
           id: cateId,
@@ -407,7 +404,7 @@
 
   .btn-confirm, .btn-cancel{
     margin: 30rpx 0;
-    width: 150rpx;
+    width: 200rpx;
     height: 60rpx;
     line-height: 60rpx;
     text-align: center;
@@ -417,6 +414,7 @@
     }
   }
   .btn-confirm{
+    margin-left: 30rpx;
     margin-right: 30rpx;
     background-color: #138cff;//#f8f8f8;
     color: #fff;
