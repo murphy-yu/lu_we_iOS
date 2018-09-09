@@ -26,7 +26,7 @@
         <input type="text" placeholder="备注信息:" />
       </view>
       <view class="btns-wrap">
-        <view class="btn-cancel" @tap="bindToBillpage">
+        <view class="btn-cancel" @tap="bindToAddpage">
           <text>开始诊断</text>
         </view>
         <view class="btn-confirm" @tap="confirmAdd">
@@ -44,9 +44,9 @@
 
 
     <!-- 投顾 -->
-    <view class="btn-addbill" @tap="bindToAddpage">
+    <!-- <view class="btn-addbill" @tap="bindToAddpage">
       <text>投顾</text>
-    </view>
+    </view> -->
 
   </view>
 
