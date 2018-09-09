@@ -4,8 +4,8 @@ import wepy from 'wepy';
 let m_bill = {
   calenderArr: ['2018', '10'],   // 当前年月
   moneyStat: {
-    income: '1000.00',   // 收入
-    pay: '100.00'       // 支出
+    income: '2730.00',   // 收入
+    pay: '1200.00'       // 支出
   },
   detailList: [
     {
@@ -21,28 +21,28 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         },
         {
           id: 1,
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -59,14 +59,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -83,14 +83,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -107,14 +107,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -131,28 +131,28 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         },
         {
           id: 1,
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -169,14 +169,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -193,14 +193,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -217,14 +217,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     },
@@ -241,14 +241,14 @@ let m_bill = {
           image: '/images/reading.png',
           title: '还款',
           remark: '',
-          mount: -12
+          mount: -120
         },
         {
           id: 2,
           image: '/images/reading.png',
           title: '收款',
           remark: '',
-          mount: 20
+          mount: 210
         }
       ]
     }
