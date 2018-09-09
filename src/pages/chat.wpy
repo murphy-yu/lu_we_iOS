@@ -21,9 +21,9 @@
 
     export default class Chat extends wepy.page {
         config = {
-            'navigationBarTitleText': 'wepy - 微信',
-            'navigationBarTextStyle': 'white',
-            'navigationBarBackgroundColor': '#3b3a40'
+            'navigationBarTitleText': '投顾大咖',
+            // 'navigationBarTextStyle': 'white',
+            // 'navigationBarBackgroundColor': '#3b3a40'
         };
         components = {
             myinput: Input,
@@ -46,7 +46,7 @@
                 this.$back();
                 return;
             }
-            wx.setNavigationBarTitle({title: contact.name});
+            wx.setNavigationBarTitle({title: '投顾大咖-' + contact.name});
 
             this.$invoke('chartboard', 'loadMessage', p.id);
         }

@@ -78,7 +78,7 @@
 
         onLoad (p) {
           console.log('@onLoad');
-          let id = 'mahuateng'
+          let id = 'mahuateng';
           this.$root.$navigate({url: 'chat?id=' + id});
         }
     }
