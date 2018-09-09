@@ -39,9 +39,9 @@
     </scroll-view>
 
     <!-- 投顾 -->
-    <!-- <view class="btn-addbill" @tap="bindToAddpage">
-      <text>记</text>
-    </view> -->
+    <view class="btn-addbill" @tap="bindToAddpage">
+      <text>投顾</text>
+    </view>
   </view>
 
 </template>
@@ -180,11 +180,12 @@
     // }
 
     // 跳转到记账页面
-    // bindToAddpage() {
-    //   log('#addone')
-    //   this.$navigate('./bill/addone')
-    //
-    // }
+    bindToAddpage() {
+      log('#addone')
+      let id = 'mahuateng';
+      this.$root.$navigate({url: '../chat?id=' + id});
+
+    }
 
     onLoad(params) {
       log('财富页面加载成功')
